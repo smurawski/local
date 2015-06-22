@@ -17,13 +17,13 @@
 # limitations under the License.
 
 node['local']['git_repos'].each do |key, value|
-  directory "#{node['local']['source_destination']}\\github\\#{key}" do
+  directory "#{node['local']['source_destination']}/github/#{key}" do
     recursive true
   end
 
   value.each do |repo|
-    git "#{node['local']['source_destination']}\\github\\#{key}\\#{repo}" do
-      repository "git@github.com:#{key}/#{repo}.git"
+    git "#{node['local']['source_destination']}/github/#{key}/#{repo}" do
+      repository "https://github.com/#{key}/#{repo}.git"
       revision 'master'
       checkout_branch 'current'
     end

@@ -26,3 +26,9 @@ EOH
 EOH
   end
 end
+
+node['local']['gems'].each do |gem|
+  chef_gem gem do
+    compile_time false if respond_to?(:compile_time) 
+  end
+end
