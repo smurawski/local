@@ -6,4 +6,4 @@ description 'Installs/Configures local'
 long_description 'Installs/Configures local'
 version '0.1.0'
 
-depends 'winbox', '= 0.1.50'
+depends 'winbox'
