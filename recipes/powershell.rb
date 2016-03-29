@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: local
-# Recipe:: default
+# Recipe:: powershell
 #
 # Copyright 2016 Chef Software, Inc
 #
@@ -16,6 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_recipe 'local::openssh'
-include_recipe 'local::repositories'
-include_recipe 'local::links'
+powershell_script 'Make Sure Nuget.exe is available' do
+  code 'Install-PackageProvider Nuget -force -forcebootstrap'
+end
+
+powershell_script 'Install Handy Modules'
+  code ''
+EOH
